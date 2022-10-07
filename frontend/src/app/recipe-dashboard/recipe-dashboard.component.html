@@ -1,0 +1,158 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 style="color: aliceblue">Recipes app</h1>
+    <div class="d-flex">
+      <button
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        class="btn btn-success"
+      >
+        Add Recipe
+      </button>
+    </div>
+  </div>
+</nav>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">name</th>
+      <th scope="col">source</th>
+      <th scope="col">ingredients</th>
+      <th scope="col">quantity</th>
+      <th scope="col">description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of recipeData">
+      <td>{{ row.id }}</td>
+      <td>{{ row.firstName }}</td>
+      <td>{{ row.source }}</td>
+      <td>{{ row.ingredients }}</td>
+      <td>{{ row.quantity }}</td>
+      <td>{{ row.description }}</td>
+      <td>
+        <button
+          (click)="onEdit(row)"
+          style="color: aliceblue"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn btn-info"
+        >
+          Edit
+        </button>
+        <button (click)="deleteRecipe(row)" class="btn btn-danger mx-3">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Recipe details</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">firstName</label>
+            <input
+              type="text"
+              formControlName="firstName"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">source</label>
+            <input
+              type="text"
+              formControlName="source"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >ingredients</label
+            >
+            <input
+              type="text"
+              formControlName="ingredients"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >quantity</label
+            >
+            <input
+              type="number"
+              formControlName="quantity"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >description</label
+            >
+            <input
+              type="text"
+              formControlName="description"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="cancel"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          (click)="postRecipeDetails()"
+          class="btn btn-primary"
+        >
+          Add
+        </button>
+        <button
+          type="button"
+          *ngIf="showUpdate"
+          (click)="updateRecipeDetails()"
+          class="btn btn-primary"
+        >
+          update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
