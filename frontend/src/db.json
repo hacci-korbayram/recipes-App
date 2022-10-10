@@ -1,5 +1,22 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "hacci",
+      "source": "www.mymoda.mk",
+      "ingredients": "milk",
+      "quantity": 2,
+      "description": "asdasdas"
+    },
+    {
+      "id": 3,
+      "firstName": "a",
+      "source": "aaaa",
+      "ingredients": "Salt",
+      "quantity": 33,
+      "description": "fffffffffffffff"
+    }
+  ],
   "comments": [],
   "profile": {
     "name": "typicode"

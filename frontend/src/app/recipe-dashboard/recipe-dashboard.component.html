@@ -34,6 +34,7 @@
       <td>{{ row.ingredients }}</td>
       <td>{{ row.quantity }}</td>
       <td>{{ row.description }}</td>
+
       <td>
         <button
           (click)="onEdit(row)"
@@ -75,56 +76,72 @@
       <div class="modal-body">
         <form [formGroup]="formValue">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">firstName</label>
+            <label for="exampleInputName" class="form-label">firstName</label>
             <input
               type="text"
               formControlName="firstName"
               class="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputName"
               aria-describedby="emailHelp"
             />
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">source</label>
+            <label for="exampleInputSource" class="form-label">source</label>
             <input
               type="text"
               formControlName="source"
               class="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputSource"
             />
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
-              >ingredients</label
+            <label for="exampleInputIngredients" class="form-label"
+              >Ingredients list</label
             >
-            <input
-              type="text"
-              formControlName="ingredients"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
+            <select class="custom-select" formControlName="ingredients">
+              <option value="Milk">Milk</option>
+              <option value="Flour">Flour</option>
+              <option value="Salt">Salt</option>
+              <option value="Sugar">Sugar</option>
+              <option value="Chees">Chees</option>
+            </select>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
+            <label for="exampleInputQuantity" class="form-label"
               >quantity</label
             >
             <input
               type="number"
               formControlName="quantity"
               class="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputQuantity"
             />
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
+            <label for="exampleInputDescription" class="form-label"
               >description</label
             >
-            <input
-              type="text"
-              formControlName="description"
+            <textarea
               class="form-control"
-              id="exampleInputPassword1"
-            />
+              id="recipe-descirption"
+              cols="30"
+              rows="3"
+              formControlName="description"
+            ></textarea>
+            <p class="description-length">
+              {{ formValue.value.description?.length || 0 }}/{{
+                maximumDescriptionSize
+              }}
+            </p>
+            <p
+              class="help-block"
+              *ngIf="
+                formValue.get('description')?.touched &&
+                formValue.get('description')?.errors
+              "
+            >
+              Description is required!
+            </p>
           </div>
         </form>
       </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
-import { RecipeModel } from './recipe-dash.board.model';
+// import { RecipeModel } from './recipe-dash.board.model';
+import { RecipeModel } from '../interfaces/recipe-model';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-dashboard',
@@ -10,6 +12,7 @@ import { RecipeModel } from './recipe-dash.board.model';
 })
 export class RecipeDashboardComponent implements OnInit {
   formValue!: FormGroup;
+  maximumDescriptionSize: number = 16;
   recipeModelObj: RecipeModel = new RecipeModel();
   recipeData!: any;
   showAdd!: boolean;
@@ -52,6 +55,7 @@ export class RecipeDashboardComponent implements OnInit {
       }
     );
   }
+
   getAllRecipe() {
     this.api.getRecipe().subscribe((res) => {
       this.recipeData = res;
@@ -60,9 +64,11 @@ export class RecipeDashboardComponent implements OnInit {
   deleteRecipe(row: any) {
     this.api.deleteRecipe(row.id).subscribe((res) => {
       alert('Recipe deleted');
+
       this.getAllRecipe();
     });
   }
+
   onEdit(row: any) {
     this.showAdd = false;
     this.showUpdate = true;
@@ -79,6 +85,7 @@ export class RecipeDashboardComponent implements OnInit {
     this.recipeModelObj.ingredients = this.formValue.value.ingredients;
     this.recipeModelObj.quantity = this.formValue.value.quantity;
     this.recipeModelObj.description = this.formValue.value.description;
+
     this.api.updateRecipe(this.recipeModelObj, this.recipeModelObj.id);
 
     this.api
