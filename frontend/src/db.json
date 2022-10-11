@@ -1,20 +1,20 @@
 {
   "posts": [
     {
-      "id": 2,
-      "firstName": "hacci",
-      "source": "www.mymoda.mk",
-      "ingredients": "milk",
-      "quantity": 2,
-      "description": "asdasdas"
+      "id": 1,
+      "firstName": "kek",
+      "source": "www.pankek.mk",
+      "ingredients": "Milk",
+      "quantity": 4,
+      "description": "Banana flour is a great gluten-friendly and grain-free "
     },
     {
-      "id": 3,
-      "firstName": "a",
-      "source": "aaaa",
-      "ingredients": "Salt",
-      "quantity": 33,
-      "description": "fffffffffffffff"
+      "id": 2,
+      "firstName": "pankek",
+      "source": "https://www.dofactory.com/html/input/url",
+      "ingredients": "Sugar",
+      "quantity": 6,
+      "description": "Berries\nNatural yoghurt\nCoconut ice -cream"
     }
   ],
   "comments": [],
