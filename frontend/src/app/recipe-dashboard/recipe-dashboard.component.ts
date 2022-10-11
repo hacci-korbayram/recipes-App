@@ -12,7 +12,7 @@ import { Validators } from '@angular/forms';
 })
 export class RecipeDashboardComponent implements OnInit {
   formValue!: FormGroup;
-  maximumDescriptionSize: number = 16;
+  maximumDescriptionSize: number = 100;
   recipeModelObj: RecipeModel = new RecipeModel();
   recipeData!: any;
   showAdd!: boolean;

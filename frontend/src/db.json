@@ -7,14 +7,6 @@
       "ingredients": "Milk",
       "quantity": 4,
       "description": "Banana flour is a great gluten-friendly and grain-free "
-    },
-    {
-      "id": 2,
-      "firstName": "pankek",
-      "source": "https://www.dofactory.com/html/input/url",
-      "ingredients": "Sugar",
-      "quantity": 6,
-      "description": "Berries\nNatural yoghurt\nCoconut ice -cream"
     }
   ],
   "comments": [],
